@@ -25,9 +25,14 @@ int main (){
             cout <<word[x] << " ";
         }else if (word[x] == ')'){
             cout << " " <<word[x];
-        }   
-            
-            
-            
-            return 0;
-     }
+        }else if(word[x] == '-' && (word[x-1] == '*' || word[x-1] == '+' ||word[x-1] == '-' ||word[x-1] == '/'||word[x-1] == '%' )){
+            cout << "-1 * ";
+        }else if (word[x] == '-' ||word[x] == '+' ||word[x] == '*' ||word[x] == '/' ||word[x] == '%') {
+            cout << " " <<word[x] << " ";
+        	}
+	
+	
+	}   
+                   
+      return 0;
+  }
