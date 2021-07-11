@@ -25,3 +25,68 @@ int prioritet(string n){
     }
     return 0;
 }
+bool grande(string n, string s){
+    int Nilai1, Nilai2;
+    Nilai1 = prioritet(n); Nilai2 = prioritet(s);
+    
+    return Nilai1 <= Nilai2;
+}
+
+vector <string> infix; vector <string> postfix; string temp; vector <string>::iterator remake; vector <string>::iterator itu;
+
+void MasukkanData(){
+    string data;
+    char harf;
+    
+    while(cin.get(harf)){
+        if(harf == '\n'){
+            break;
+        }
+        if(harf != ' '){
+            data.push_back(harf);
+        }
+    }
+    int length = data.length();
+
+    for(int i = 0; i < length; i++){
+        if(data[i] == '(' ||
+           data[i] == ')'){
+            if(temp.length() != 0){
+                infix.push_back(temp);
+                temp.clear();
+            }
+            infix.push_back(data.substr(i, 1));
+        }
+        if(isdigit(data[i]) ||
+           (data[i] == '-' &&
+            i == 0 &&
+            isdigit(data[i+1]))){
+            
+            temp.push_back(data[i]);
+            continue;
+        }
+        if(oibreoir(data[i])){
+            if(temp.length() != 0){
+                
+                infix.push_back(temp);
+                temp.clear();
+            }
+            if((data[i] == '-' &&
+                oibreoir(data[i-1])) ||
+               (data[i] == '-' &&
+                i == 0 && data[i+1] == '(') ||
+               (data[i] == '-' &&
+                data[i-1] == '(')){
+                
+                infix.push_back("-1");
+                infix.push_back("*");
+            }else{
+                infix.push_back(data.substr(i, 1));
+            }
+        }
+    }
+    if(temp.length() != 0){
+        infix.push_back(temp);
+        temp.clear();
+    }
+}
