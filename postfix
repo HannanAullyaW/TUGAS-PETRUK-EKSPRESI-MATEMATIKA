@@ -1,0 +1,5 @@
+    while(stk.a[stk.array-1]!='#') {
+        postfix += stk.a[stk.array-1];
+        postfix += ' ';
+        stk.array--;
+    }
