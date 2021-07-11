@@ -1,0 +1,4 @@
+bool isNum(char a) {
+    string idt = "0123456789";
+    bool cek = false;
+    
