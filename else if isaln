@@ -1,0 +1,11 @@
+if(isalnum(infix[i])) {
+            str += infix[i];
+        }
+        else if(infix[i]=='-') {
+            if(isalnum(infix[i+1])) {
+                str += infix[i];
+            }
+            else if(infix[i+1]=='(') {
+                if(isalnum(infix[i-1])) {
+                    str += infix[i];
+                }
