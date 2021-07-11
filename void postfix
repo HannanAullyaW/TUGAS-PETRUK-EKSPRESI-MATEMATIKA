@@ -5,8 +5,52 @@ void postfixx(string str, int length) {
     stk.array++;
     string postfix = "";
 
-
-
-
-
-  }
+    for(int i=0; i<length; i++) {
+        if(isNum(str[i])) {
+            if(isNum(str[i+1])) {
+                postfix += str[i];
+            }
+            else {
+                postfix += str[i];
+                postfix += ' ';
+            }
+        }
+        else {
+            if(str[i]=='(') {
+                stk.a[stk.array] = str[i];
+                stk.array++;
+            }
+            elif(str[i]==')') {
+                while(stk.a[stk.array-1]!='#' && stk.a[stk.array-1]!='(') {
+                    postfix += stk.a[stk.array-1];
+                    postfix += ' ';
+                    stk.array--;
+                }
+                stk.array--;
+            }
+            else {
+                if(str[i]!=' ') {
+                    if(!(isNum(str[i-1])) && str[i]=='-' && isNum(str[i+1])) {
+                        postfix += str[i];
+                    }
+                    else {
+                        while(stk.a[stk.array-1]!='#' && isO(str[i]) <= isO(stk.a[stk.array-1])) {
+                            postfix += stk.a[stk.array-1];
+                            postfix += ' ';
+                            stk.array--;
+                        }
+                        stk.a[stk.array] = str[i];
+                        stk.array++;
+                    }
+                }
+            }
+        }
+    }
+    while(stk.a[stk.array-1]!='#') {
+        postfix += stk.a[stk.array-1];
+        postfix += ' ';
+        stk.array--;
+    }
+    
+    cout << postfix;
+}
