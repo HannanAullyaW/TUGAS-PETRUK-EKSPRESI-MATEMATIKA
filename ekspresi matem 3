@@ -1,0 +1,11 @@
+#include <cmath>
+#include <cstdio>
+#include <vector>
+#include <iostream>
+#include <algorithm>
+#define elif else if
+#define maks 100
+using namespace std;
+void postfixx(string str, int length);
+int isO(char a);
+bool isNum(char a);
