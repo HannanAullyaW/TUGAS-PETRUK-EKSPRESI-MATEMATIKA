@@ -1,0 +1,8 @@
+int isO(char a) {
+    if(a=='+' || a=='-')
+        return 1;
+    elif(a=='*' || a=='/' || a=='%')
+        return 2;
+    else
+        return 0;
+}
