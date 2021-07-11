@@ -1,0 +1,15 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+bool oibreoir(char n){
+    if(n == '+' || 
+       n == '-' || 
+       n == '*' || 
+       n == '/' || 
+       n == '%'   ){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
