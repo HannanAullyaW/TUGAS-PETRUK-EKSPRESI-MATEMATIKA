@@ -1,5 +1,9 @@
 void postfixx(string str, int length) {
-
+    struct stack stk;
+    stk.array = 0; // intial index stack
+    stk.a[stk.array] = '#';
+    stk.array++;
+    string postfix = "";
 
 
 
