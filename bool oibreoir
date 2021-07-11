@@ -1,0 +1,12 @@
+bool oibreoir(char n){
+    if(n == '+' || 
+       n == '-' || 
+       n == '*' || 
+       n == '/' || 
+       n == '%'   ){
+        return true;
+    }
+    else{
+        return false;
+    }
+}
